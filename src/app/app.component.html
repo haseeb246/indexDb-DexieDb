@@ -1,0 +1,68 @@
+<div class="mx-auto-400px pt-3">
+
+  <!--READING LIST MANAGEMENT-->
+  <div class="list-item-wrapper">
+    <div class="form-group mt-3">
+      <input placeholder="Example: 'Woodworking'" class="form-control" required autocomplete="off" id="name" #name
+        [(ngModel)]="user.name" type="text">
+    </div>
+    <div class="mt-2 flex-row nowrap align-center">
+      <a (click)="addNewListType()" [ngClass]="!user.name ? 'btn btn-primary disabled' : 'btn btn-primary' ">
+        Add new list
+      </a>
+      <a (click)="addNewListType()" class="btn btn-default">
+        Reset
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-sm-11">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <!-- <th>Address</th> -->
+          <th>Phone</th>
+          <th>Website</th>
+          <!-- <th>Company</th> -->
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <!-- <td>
+            {{ user.address.street }}, {{ user.address.suite }},
+            {{ user.address.city }}, {{ user.address.zipcode }}
+            <br>
+            Geo: [{{ user.address.geo.lat }}, {{ user.address.geo.lng }}]
+          </td> -->
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+          <!-- <td>
+            {{ user.company.name }}
+            <br>
+            {{ user.company.catchPhrase }}
+            <br>
+            {{ user.company.bs }}
+          </td> -->
+          <td>
+            <!-- Edit button -->
+            <button (click)="editUser(user)">Edit</button>
+            <!-- Delete button -->
+            <button (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
